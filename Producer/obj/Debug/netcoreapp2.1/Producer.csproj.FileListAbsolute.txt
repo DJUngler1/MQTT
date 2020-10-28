@@ -1,0 +1,11 @@
+D:\AVG\MQTT\Producer\bin\Debug\netcoreapp2.1\Producer.deps.json
+D:\AVG\MQTT\Producer\bin\Debug\netcoreapp2.1\Producer.runtimeconfig.json
+D:\AVG\MQTT\Producer\bin\Debug\netcoreapp2.1\Producer.runtimeconfig.dev.json
+D:\AVG\MQTT\Producer\bin\Debug\netcoreapp2.1\Producer.dll
+D:\AVG\MQTT\Producer\bin\Debug\netcoreapp2.1\Producer.pdb
+D:\AVG\MQTT\Producer\obj\Debug\netcoreapp2.1\Producer.csprojAssemblyReference.cache
+D:\AVG\MQTT\Producer\obj\Debug\netcoreapp2.1\Producer.csproj.CoreCompileInputs.cache
+D:\AVG\MQTT\Producer\obj\Debug\netcoreapp2.1\Producer.AssemblyInfoInputs.cache
+D:\AVG\MQTT\Producer\obj\Debug\netcoreapp2.1\Producer.AssemblyInfo.cs
+D:\AVG\MQTT\Producer\obj\Debug\netcoreapp2.1\Producer.dll
+D:\AVG\MQTT\Producer\obj\Debug\netcoreapp2.1\Producer.pdb
