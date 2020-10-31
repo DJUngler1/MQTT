@@ -33,9 +33,8 @@ namespace Consumer
                     channel.BasicAck(ea.DeliveryTag, false);
                 };
                 channel.BasicConsume(queue: queueName,
-                                     autoAck: true,
+                                     autoAck: false,
                                      consumer: consumer);  
-            
                 Console.ReadLine();
             }
         }

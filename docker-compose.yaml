@@ -1,7 +1,0 @@
-services:
-  rabbitmq3:
-    image: rabbitmq:3.8.9
-    environment:
-      plugins: rabbitmq_mqtt 
-    ports:
-      - 15672:15672
