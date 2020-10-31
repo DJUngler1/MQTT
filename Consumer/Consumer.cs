@@ -11,35 +11,31 @@ namespace Consumer
         public static void Main(string[] args)
         {   
             Console.WriteLine("Arztname: ");
-            var Key = Console.ReadLine();
-            var factory = new ConnectionFactory() { HostName = "localhost" };
-            factory.DispatchConsumersAsync = true;
+            string Key = Console.ReadLine();
+            var factory = new ConnectionFactory(){ HostName = "localhost" };
             using(var connection = factory.CreateConnection())
             using(var channel = connection.CreateModel())
             {
-                channel.ExchangeDeclare(exchange: "PatientenDaten",
+                channel.ExchangeDeclare(exchange: "Patientendaten",
                                         type: "topic");
                 var queueName = channel.QueueDeclare().QueueName;
-
                 channel.QueueBind(queue: queueName,
-                                  exchange: "PatientenDaten",
+                                  exchange: "Patientendaten",
                                   routingKey: Key);
-
+                int messageCount = Convert.ToInt32(channel.MessageCount(queueName)); 
                 Console.WriteLine("Waiting for messages. To exit press CTRL+C"); 
-
-                var consumer = new AsyncEventingBasicConsumer(channel);
-                consumer.Received += async (ch, ea) =>
+                var consumer = new EventingBasicConsumer(channel);    
+                consumer.Received += (model, ea) =>
                 {
                     var body = ea.Body.ToArray();
                     var message = Encoding.UTF8.GetString(body);
                     Console.WriteLine("Recieved: " + message);
                     channel.BasicAck(ea.DeliveryTag, false);
-                    await Task.Yield();
                 };
-            
                 channel.BasicConsume(queue: queueName,
-                                     autoAck: false,
-                                     consumer: consumer);
+                                     autoAck: true,
+                                     consumer: consumer);  
+            
                 Console.ReadLine();
             }
         }
